@@ -1,7 +1,6 @@
 # keyboardnumber
 
-[github仓库-求关注-求点心](https://github.com/plingply/keyboard-number)
-[测试地址，请用手机打开 http://jtutu.cn/keyboard](http://jtutu.cn/keyboard)
+根据 https://github.com/plingply/keyboard-number 修改而来
 
 ### 预览效果
 
@@ -13,12 +12,12 @@
 //安装
 npm install onekeyboard --save
 //在项目中引入
-import 'keyboard-number/dist/style.css';
-import keyboardnumber from "keyboard-number";
+import 'onekeyboard/dist/style.css';
+import keyboardnumber from "onekeyboard";
 Vue.use(keyboardnumber)
 
 //在项目中使用
-<keyboard-number @callback="keyboardcallbak" @paycallbakc="paycallbakc"></keyboard-number>
+<onekeyboard @callback="keyboardcallbak" @paycallbakc="paycallbakc"></onekeyboard>
 
 ```
 
