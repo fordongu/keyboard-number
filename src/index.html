@@ -1,0 +1,34 @@
+<div class="keyboard" ref="keyboard_id">
+  <div class="left">
+    <div class="row">
+      <span class="textstyle" @touchstart="clicknumberfun($event,'1')">1</span>
+      <span class="textstyle" @touchstart="clicknumberfun($event,'2')">2</span>
+      <span class="textstyle" @touchstart="clicknumberfun($event,'3')">3</span>
+    </div>
+    <div class="row">
+      <span class="textstyle" @touchstart="clicknumberfun($event,'4')">4</span>
+      <span class="textstyle" @touchstart="clicknumberfun($event,'5')">5</span>
+      <span class="textstyle" @touchstart="clicknumberfun($event,'6')">6</span>
+    </div>
+    <div class="row">
+      <span class="textstyle" @touchstart="clicknumberfun($event,'7')">7</span>
+      <span class="textstyle" @touchstart="clicknumberfun($event,'8')">8</span>
+      <span class="textstyle" @touchstart="clicknumberfun($event,'9')">9</span>
+    </div>
+    <div class="row">
+      <span class="textstyle" @touchstart="clicknumberfun($event,'.')" v-if="type != 'sfz'">.</span>
+      <span class="textstyle" @touchstart="clicknumberfun($event,'x')" v-if="type == 'sfz'">x</span>
+      <span class="textstyle" @touchstart="clicknumberfun($event,'0')">0</span>
+      <span class="textstyle closebtn" @touchstart="close($event)"></span>
+    </div>
+  </div>
+  <div class="right">
+    <span class="textstyle clearbtn" @touchstart="delonestart($event)" @touchend="deloneend($event)">
+      <i>×</i>
+    </span>
+    <span class="textstyle" @touchstart="delall($event)">
+      清空
+    </span>
+    <s class="textstyle" id="paybtn" @click="pay" :style="{backgroundColor:bgcolors,color:textcolor}">{{ text }}</s>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Keyboard</title>
+	<link rel="stylesheet" href="../dist/style.css">
+	<script src="vue.min.js"></script>
+	<script src="../dist/index.js"></script>
+</head>
+<body>
+	<div id="app">
+		{{ total }}
+		<button type="button" @click="show = !show">按钮</button>
+		<keyboard-number @callback="keyboardcallbak" :disabled="true" :show="show" type="sfz" :len="18" @paycallbakc="paycallbakc"></keyboard-number>
+	</div>
+	<script>
+		Vue.use(keyboardnumber)
+		new Vue({
+			el:'#app',
+			data:{
+				total:"",
+				show:false
+			},
+			methods:{
+				keyboardcallbak(val){
+					this.total = val
+				},
+				paycallbakc(){
+					alert('支付成功'+this.total)
+				}
+			}
+		})
+	</script>
+</body>
+</html>

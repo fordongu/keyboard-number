@@ -1,0 +1,74 @@
+{
+  "_from": "keyboard-number",
+  "_id": "keyboard-number@1.5.7",
+  "_inBundle": false,
+  "_integrity": "sha512-v59L73TyaRgdBezg3JYzBCmaC4cjgbZrIJlb/bh/iMC0YljVWnbZ64OFcXmW90t5rEQtdNmqjv5uyJaYm2KKeQ==",
+  "_location": "/keyboard-number",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "keyboard-number",
+    "name": "keyboard-number",
+    "escapedName": "keyboard-number",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/keyboard-number/-/keyboard-number-1.5.7.tgz",
+  "_shasum": "7ac844edc8da0594d41acc8ae23ea57fdf631e73",
+  "_spec": "keyboard-number",
+  "_where": "F:\\coding\\product\\demo",
+  "author": {
+    "name": "plingply"
+  },
+  "bugs": {
+    "url": "https://github.com/plingply/keyboard-number/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "vue ui keyboard number",
+  "devDependencies": {
+    "autoprefixer": "^7.2.6",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^3.9.3",
+    "gulp-less": "^4.0.0",
+    "gulp-postcss": "^7.0.1",
+    "postcss-clean": "^1.1.0",
+    "postcss-cssnext": "^3.0.2",
+    "postcss-import": "^11.0.0",
+    "postcss-nested": "^2.1.2",
+    "postcss-simple-vars": "^4.1.0",
+    "rollup": "^0.59.0",
+    "rollup-plugin-buble": "^0.18.0",
+    "rollup-plugin-commonjs": "^8.2.6",
+    "rollup-plugin-html": "^0.2.1",
+    "rollup-plugin-json": "^2.3.0",
+    "rollup-plugin-license": "^0.5.0",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "rollup-plugin-postcss": "^0.5.5",
+    "rollup-plugin-progress": "^0.4.0",
+    "rollup-plugin-replace": "^2.0.0",
+    "rollup-plugin-uglify": "^3.0.0",
+    "rollup-watch": "^4.3.1"
+  },
+  "homepage": "https://github.com/plingply/keyboard-number#readme",
+  "license": "ISC",
+  "main": "dist/index.js",
+  "name": "keyboard-number",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/plingply/keyboard-number.git"
+  },
+  "scripts": {
+    "build": "gulp",
+    "push": "npm publish && git add --all && git commit -a -m 'x' && git push",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.5.7"
+}
