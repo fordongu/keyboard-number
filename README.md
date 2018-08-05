@@ -2,9 +2,6 @@
 
 根据 https://github.com/plingply/keyboard-number 修改而来
 
-### 预览效果
-
-<img src="./test/keyboard.png" alt="GitHub" title="GitHub,Social Coding" width="320"/>
 
 ### 使用方法：
 ```javascript
