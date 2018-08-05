@@ -11,7 +11,7 @@
 ```javascript
 
 //安装
-npm install keyboard-number --save
+npm install onekeyboard --save
 //在项目中引入
 import 'keyboard-number/dist/style.css';
 import keyboardnumber from "keyboard-number";
