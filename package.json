@@ -1,6 +1,6 @@
 {
     "name": "onekeyboard",
-    "version": "1.6.1",
+    "version": "1.6.2",
     "description": "vue ui keyboard number by plingply",
     "main": "dist/index.js",
     "scripts": {
