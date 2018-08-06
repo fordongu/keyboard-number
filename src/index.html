@@ -19,16 +19,17 @@
       <span class="textstyle" @touchstart="clicknumberfun($event,'.')" v-if="type != 'sfz'">.</span>
       <span class="textstyle" @touchstart="clicknumberfun($event,'x')" v-if="type == 'sfz'">x</span>
       <span class="textstyle" @touchstart="clicknumberfun($event,'0')">0</span>
-      <span class="textstyle closebtn" @touchstart="close($event)"></span>
+      <span class="textstyle" @touchstart="delall($event)">
+        清空
+      </span>
+      <!-- <span class="textstyle closebtn" @touchstart="close($event)"></span> -->
     </div>
   </div>
   <div class="right">
     <span class="textstyle clearbtn" @touchstart="delonestart($event)" @touchend="deloneend($event)">
       <i>×</i>
     </span>
-    <span class="textstyle" @touchstart="delall($event)">
-      清空
-    </span>
+
     <s class="textstyle" id="paybtn" @click="pay" :style="{backgroundColor:bgcolors,color:textcolor}">{{ text }}</s>
   </div>
 </div>

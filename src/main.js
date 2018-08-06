@@ -42,9 +42,20 @@ let keyboard = {
             this.bgcolors = val ? '#ddd' : this.bgcolor
         },
         show() {
+            this.str = this.value;
             setTimeout(() => {
                 this.setkeyboardtop()
             }, 100)
+        },
+        'value':{
+            handler: function() {
+                if(this.value){
+                    this.str = this.value;
+                }else{
+                    this.str = '';
+                }
+
+            }
         }
     },
     data() {
@@ -60,6 +71,10 @@ let keyboard = {
         };
     },
     methods: {
+        //设置str 主要用在需要判断最大值的大小的时候超出了限制
+        setStr(val){
+            this.str = val;
+        },
         // 按下效果
         numberstart(e) {
             this.target = e.target.tagName == 'I' ? e.target.parentNode : e.target
@@ -88,20 +103,24 @@ let keyboard = {
                     this.str += val;
                     this.str = Number(this.str.split('.')[0]) + '.' + (this.str.split('.')[1] ? this.str.split('.')[1] : '')
                 } else {
-                    if (this.str.indexOf('.') === -1) {
-                        this.str = Number(this.str).toString() == '0' ? '' : Number(this.str).toString()
-                    } else {
-                        if (this.str.split('.')[0].length >= 1) {
-                            this.str = Number(this.str.split('.')[0]) + '.' + (this.str.split('.')[1] ? this.str.split('.')[1] : '')
+                    if(this.str || this.str == 0){
+                        if (this.str.indexOf('.') === -1) {
+                            this.str = Number(this.str).toString() == '0' ? '' : Number(this.str).toString()
+                        } else {
+                            if (this.str.split('.')[0].length >= 1) {
+                                this.str = Number(this.str.split('.')[0]) + '.' + (this.str.split('.')[1] ? this.str.split('.')[1] : '')
+                            }
                         }
+                        if (this.str.indexOf(".") == -1 && this.str.length >= this.len) {
+                            val = "";
+                        }
+                        if (this.str.split(".")[1] && this.str.split(".")[1].length >= 2) {
+                            val = "";
+                        }
+                        this.str += val;
+                    }else{
+                        this.str = val;
                     }
-                    if (this.str.indexOf(".") == -1 && this.str.length >= this.len) {
-                        val = "";
-                    }
-                    if (this.str.split(".")[1] && this.str.split(".")[1].length >= 2) {
-                        val = "";
-                    }
-                    this.str += val;
                 }
             } else if (this.type == 'phone') {
                 if (val == '.' || this.str.length >= this.len) {
@@ -122,7 +141,7 @@ let keyboard = {
             this.numberstart(e)
             e.preventDefault()
             navigator.vibrate ? navigator.vibrate(50) : (navigator.webkitVibrate ? navigator.webkitVibrate(50) : '')
-            this.$emit("callback", this.str);
+            this.$emit("callback", this.str,'delall');
         },
         delonestart(e) {
             this.numberstart(e)
@@ -130,7 +149,7 @@ let keyboard = {
             navigator.vibrate ? navigator.vibrate(50) : (navigator.webkitVibrate ? navigator.webkitVibrate(50) : '')
             if (this.str.length > 0) {
                 this.str = this.str.substr(0, this.str.length - 1);
-                this.$emit("callback", this.str);
+                this.$emit("callback", this.str,'del');
                 this.delinterval = setTimeout(() => {
                     this.delonebyone()
                 }, 500)
@@ -148,7 +167,7 @@ let keyboard = {
                         return
                     }
                     this.str = this.str.substr(0, this.str.length - 1);
-                    this.$emit("callback", this.str);
+                    this.$emit("callback", this.str,'del');
                 }, 100)
             }
         },
@@ -185,7 +204,7 @@ let keyboard = {
                 item.style.lineHeight = this.dh + 'px'
                 if (item.id == 'paybtn') {
                     item.style.height = this.dh * 3 + 'px'
-                    item.style.lineHeight = this.dh * 2 + 'px'
+                    item.style.lineHeight = this.dh * 3 + 'px'
                 }
             })
         },
@@ -208,7 +227,11 @@ let keyboard = {
     },
     created() {
         // document.documentElement.style.fontSize = document.documentElement.clientWidth / 7.5 + "px";
-        this.str = this.value
+        if(this.value){
+            this.str = this.value
+        }else{
+            this.str = ''
+        }
         this.bgcolors = this.disabled ? '#ddd' : this.bgcolor
     },
     mounted() {
