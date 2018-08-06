@@ -203,7 +203,7 @@ let keyboard = {
                     this.str += ".00";
                 }
             }
-            this.$emit("close");
+            this.$emit("close", this.str);
         }
     },
     created() {
